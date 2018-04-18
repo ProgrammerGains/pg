@@ -1,0 +1,63 @@
+
+
+/** header */
+.header-card {
+  display: flex;
+  justify-content: space-between;
+}
+
+#header-title {
+  text-decoration: none;
+  color: black;
+}
+#header-title:hover {
+  cursor:pointer;
+}
+
+.github-anchor {
+  text-decoration: none;
+}
+
+#github-icon {
+  height: 50px;
+  width: 50px;
+}
+
+/** subjects */
+.mat-toolbar-subject {
+  margin-top: -6px;
+  margin-bottom: -6px;
+}
+
+/** body */
+.mat-card-post {
+  height: 960px;
+}
+
+.content {
+  font-family: 'Arial', sans-serif;
+}
+
+/** footer */
+.mat-toolbar-footer {
+  margin-top: -6px;
+}
+
+.social-icon-row {
+  margin-top: 9px;
+  text-align: center;
+}
+
+/**
+  Social media links
+ */
+
+.social-anchor {
+  text-decoration: none;
+}
+
+.social-icon {
+  margin-right: 25px;
+  height: 35px;
+  width: 35px;
+}

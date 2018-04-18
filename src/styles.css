@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+/**
+  Body divs
+ */
+
+.section-layout {
+  max-width: 740px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.section-inner {
+  width: 100%;
+  margin: 0 auto;
+}
