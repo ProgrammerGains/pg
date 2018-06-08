@@ -36,7 +36,9 @@
 
 .content {
   font-family: 'Arial', sans-serif;
+  max-width:740px;
 }
+
 
 /** footer */
 .mat-toolbar-footer {
