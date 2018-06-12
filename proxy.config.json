@@ -1,0 +1,11 @@
+{
+  "/php_api/*": {
+    "target": "http://localhost:8888",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/php_api": ""
+    }
+  }
+}

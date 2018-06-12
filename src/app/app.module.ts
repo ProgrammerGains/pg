@@ -7,6 +7,7 @@ import {MainPageModule} from "./main-page/main-page.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {SharedModule} from "./shared/shared.module";
 import {RouterModule} from "@angular/router";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import {RouterModule} from "@angular/router";
     // angular
     BrowserAnimationsModule,
     BrowserModule,
+    HttpClientModule,
     RouterModule,
 
     // shared

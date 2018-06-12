@@ -1,0 +1,2 @@
+Production build command
+ng build --aot --prod --output-hashing none
