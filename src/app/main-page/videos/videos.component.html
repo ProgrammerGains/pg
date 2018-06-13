@@ -1,5 +1,5 @@
 <mat-card class="section-layout section-inner mat-card-post content">
-  <p>
-    videos works!
+  <p *ngFor="let video of videos">
+    <span (click)="onVideoClick(video.title_link)">{{ video.title_display }}</span>
   </p>
 </mat-card>

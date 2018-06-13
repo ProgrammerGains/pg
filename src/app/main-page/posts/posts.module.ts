@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PostsRoutingModule } from './posts-routing.module';
 import {PostsComponent} from "./posts.component";
 import {SharedModule} from "../../shared/shared.module";
+import {PostComponent} from "./post.component";
 
 @NgModule({
   imports: [
@@ -11,10 +12,8 @@ import {SharedModule} from "../../shared/shared.module";
     PostsRoutingModule
   ],
   declarations: [
-    PostsComponent
-  ],
-  exports: [
-    PostsComponent
+    PostsComponent,
+    PostComponent
   ]
 })
 export class PostsModule { }

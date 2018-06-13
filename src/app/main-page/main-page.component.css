@@ -27,6 +27,10 @@
   margin-bottom: -6px;
 }
 
+.active-link-button {
+  color: #FC4C02;
+}
+
 #section-left {
   float: left;
   margin-top: 8px;

@@ -1,14 +1,12 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AboutComponent} from "./about/about.component";
+import {PostComponent} from "./posts/post.component";
 
+// TODO add not found route
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './posts/posts.module#PostsModule'
-  },
-  {
-    path: 'posts',
     loadChildren: './posts/posts.module#PostsModule'
   },
   {
@@ -22,6 +20,10 @@ const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent
+  },
+  {
+    path: ':post',
+    component: PostComponent
   }
 ];
 

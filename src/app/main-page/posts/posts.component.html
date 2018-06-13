@@ -12,17 +12,17 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
       <td mat-cell *matCellDef="let row" class="td-post-list">
         <div (click)="onPostClick(row.title_link)" class="post-div">
-        <mat-card-title class="card-title">
-          {{ row.title_display }}
-        </mat-card-title>
+          <mat-card-title class="card-title">
+            {{ row.title_display }}
+          </mat-card-title>
 
-        <mat-card-subtitle class="card-subtitle-data">
-          {{ row.date | date }}
-        </mat-card-subtitle>
+          <mat-card-subtitle class="card-subtitle-data">
+            {{ row.date | date }}
+          </mat-card-subtitle>
 
-        <mat-card-content *ngIf="row.caption">
-          {{ row.caption }}
-        </mat-card-content>
+          <mat-card-content *ngIf="row.caption">
+            {{ row.caption }}
+          </mat-card-content>
         </div>
       </td>
     </ng-container>

@@ -15,13 +15,21 @@
   <div class="section-layout section-inner">
     <div id="section-left">
       <button mat-button
-              [routerLink]="['posts']">Posts</button> |
+              [routerLink]="['']"
+              [routerLinkActive]="['active-link-button']"
+              [routerLinkActiveOptions]="{exact: true}">Posts</button> |
       <button mat-button
-              [routerLink]="['reviews']">Reviews</button> |
+              [routerLink]="['reviews']"
+              [routerLinkActive]="['active-link-button']"
+              [routerLinkActiveOptions]="{exact: true}">Reviews</button> |
       <button mat-button
-              [routerLink]="['videos']">Videos</button> |
+              [routerLink]="['videos']"
+              [routerLinkActive]="['active-link-button']"
+              [routerLinkActiveOptions]="{exact:true}">Videos</button> |
       <button mat-button
-              [routerLink]="['about']">About</button>
+              [routerLink]="['about']"
+              [routerLinkActive]="['active-link-button']"
+              [routerLinkActiveOptions]="{exact: true}">About</button>
     </div>
     <div id="section-right">
       <a class="social-anchor"

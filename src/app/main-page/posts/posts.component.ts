@@ -1,6 +1,8 @@
 import {ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {MatPaginator, MatSort, MatTableDataSource} from "@angular/material";
+import {ActivatedRoute, Router} from "@angular/router";
+import {Subscription} from "rxjs/internal/Subscription";
 
 @Component({
   selector: 'app-posts',
@@ -8,28 +10,37 @@ import {MatPaginator, MatSort, MatTableDataSource} from "@angular/material";
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
+  readPost: boolean;
+
   displayedColumns = ['title'];
   dataSource: MatTableDataSource<Posts>;
+  paramsSubscription: Subscription;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private router: Router,
+              private route: ActivatedRoute) {
+
   }
 
   ngOnInit() {
+    this.readPost = true;
     this.getPosts();
+
+
   }
 
   getPosts() {
-    this.http.get<Array<Posts>>('/php_api/backend_posts_get.php')
+    this.http.get<Array<Posts>>('/php_api/posts_get.php')
       .subscribe((data: Posts[]) => {
         console.log(data);
         this.dataSource = new MatTableDataSource<Posts>(data);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       }, error => {
-        console.log('unable to connect', error);
+        console.log('unable to connect: ' + error);
       });
   }
 
@@ -44,6 +55,10 @@ export class PostsComponent implements OnInit {
     }
   }
 
+  onPostClick(title_link: string) {
+    this.readPost = false;
+    this.router.navigate([title_link]);
+  }
 }
 
 export interface Posts {
