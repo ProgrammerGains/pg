@@ -20,9 +20,6 @@ import {HttpClientModule} from "@angular/common/http";
     HttpClientModule,
     RouterModule,
 
-    // shared
-    SharedModule,
-
     // features
     MainPageModule,
 

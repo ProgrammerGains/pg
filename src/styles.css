@@ -26,3 +26,20 @@
 .card-subtitle {
   font-size: 16pt;
 }
+
+.item-title {
+  font-size: 20pt;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.item-author {
+  font-size: 12pt;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+.item-caption {
+  font-size: 9pt;
+  margin-top: 15px;
+}

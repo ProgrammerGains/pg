@@ -7,7 +7,8 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./videos.component.css']
 })
 export class VideosComponent implements OnInit {
-  videos: Videos[];
+  videos: Video[];
+  videosSelected: Array<boolean>;
 
   constructor(private http: HttpClient) {
     this.videos = [];
@@ -18,7 +19,7 @@ export class VideosComponent implements OnInit {
   }
 
   getVideos() {
-    this.http.get<Array<Videos>>('/php_api/videos_get.php')
+    this.http.get<Array<Video>>('/php_api/videos_get.php')
       .subscribe((res: any) => {
         console.log(res);
         this.videos = res;
@@ -27,12 +28,12 @@ export class VideosComponent implements OnInit {
     });
   }
 
-  onVideoClick(title_link: string) {
-    console.log(title_link);
+  onVideoClick(index: number) {
+    console.log(index);
   }
 }
 
-export interface Videos {
+export interface Video {
   title_link: string;
   title_display: string;
   date: string;

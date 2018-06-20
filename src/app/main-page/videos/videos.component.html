@@ -1,5 +1,16 @@
 <mat-card class="section-layout section-inner mat-card-post content">
-  <p *ngFor="let video of videos">
-    <span (click)="onVideoClick(video.title_link)">{{ video.title_display }}</span>
-  </p>
+  <div *ngFor="let video of videos">
+    <mat-card-title class="card-title item-title">
+      {{ video.title_display }}
+    </mat-card-title>
+    <mat-card-subtitle class="card-subtitle item-author">
+      By {{ video.author }}
+    </mat-card-subtitle>
+    <mat-card-content class="item-caption">
+      {{ video.date | date }} <br/>
+      {{ video.caption }}
+    </mat-card-content>
+
+    <mat-divider [inset]="true"></mat-divider>
+  </div>
 </mat-card>

@@ -41,6 +41,12 @@
   margin-top: 8px;
 }
 
+/** body */
+#loading-progress-bar {
+  position: fixed;
+  z-index: 2;
+}
+
 /** footer */
 .mat-toolbar-footer {
   margin-top: -6px;
@@ -52,10 +58,7 @@
   text-align: center;
 }
 
-/**
-  Social media links
- */
-
+/** social media links */
 .social-anchor {
   text-decoration: none;
 }

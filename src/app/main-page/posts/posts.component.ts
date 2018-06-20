@@ -10,53 +10,55 @@ import {Subscription} from "rxjs/internal/Subscription";
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
-  readPost: boolean;
+  numPostsPerPage: number;
+  numPosts: number;
+  lengthInit: boolean;
+  reviews: any[] = [];
 
-  displayedColumns = ['title'];
+  displayedColumns = ['title', 'thumbnail'];
   dataSource: MatTableDataSource<Posts>;
-  paramsSubscription: Subscription;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private http: HttpClient,
-              private router: Router,
-              private route: ActivatedRoute) {
-
+  constructor(private changeDetectorRefs: ChangeDetectorRef,
+              private http: HttpClient,
+              private router: Router) {
+    this.numPostsPerPage = 2;
   }
 
   ngOnInit() {
-    this.readPost = true;
+    this.paginator.page.subscribe(() => {
+      this.getPosts();
+    });
+
     this.getPosts();
-
-
   }
 
   getPosts() {
-    this.http.get<Array<Posts>>('/php_api/posts_get.php')
+    this.http.post('/php_api/posts_get.php',
+      { row_start: this.paginator.pageIndex * (this.numPostsPerPage), row_include: this.numPostsPerPage })
       .subscribe((data: Posts[]) => {
-        console.log(data);
-        this.dataSource = new MatTableDataSource<Posts>(data);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+        if (data) {
+          console.log(data);
+          this.numPosts = data[data.length - 1]['total_count'];
+          this.dataSource = new MatTableDataSource<Posts>(data.slice(0, -1));
+
+          if (!this.lengthInit) {
+            this.dataSource.paginator = this.paginator;
+            this.lengthInit = true;
+          }
+        }
       }, error => {
         console.log('unable to connect: ' + error);
       });
   }
 
-  // TODO fix table sort icon
-  applyFilter(filterValue: string) {
-    console.log(filterValue + " " + typeof filterValue);
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
-    this.dataSource.filter = filterValue;
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
+
+  onSearch(seachValue: string) {
+
   }
 
   onPostClick(title_link: string) {
-    this.readPost = false;
     this.router.navigate([title_link]);
   }
 }

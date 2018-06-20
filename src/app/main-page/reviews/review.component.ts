@@ -3,11 +3,11 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 
 @Component({
-  selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  selector: '<app-review></app-review>',
+  templateUrl: './review.component.html',
+  styleUrls: ['./review.component.css']
 })
-export class PostComponent implements OnInit {
+export class ReviewComponent implements OnInit {
   postHTML: string;
 
   constructor(private route: ActivatedRoute,
@@ -20,12 +20,13 @@ export class PostComponent implements OnInit {
   }
 
   loadHTML() {
-    this.http.post<string>('/php_api/post_get.php', {post: this.route.snapshot.params['post']})
+    this.http.post<string>('/php_api/review_get.php', {review: this.route.snapshot.params['review']})
       .subscribe((res: any) => {
+        console.log(res);
         if (res !== null && res[0].html) {
           this.postHTML = res[0].html;
         } else {
-          this.postHTML = '<p>' + this.route.snapshot.params['post'] + '</p><p>Not found</p>';
+          this.postHTML = '<p>' + this.route.snapshot.params['review'] + '</p><p>Not found</p>';
         }
       }, error => {
         console.log('Error loading post ' + error);

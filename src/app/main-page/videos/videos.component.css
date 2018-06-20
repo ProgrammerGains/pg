@@ -1,0 +1,17 @@
+
+#video-title {
+  font-size: 20pt;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+#video-author {
+  font-size: 12pt;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+#video-caption {
+  font-size: 9pt;
+  margin-top: 15px;
+}

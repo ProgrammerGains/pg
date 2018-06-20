@@ -3,7 +3,6 @@ import {RouterModule, Routes} from '@angular/router';
 import {AboutComponent} from "./about/about.component";
 import {PostComponent} from "./posts/post.component";
 
-// TODO add not found route
 const routes: Routes = [
   {
     path: '',

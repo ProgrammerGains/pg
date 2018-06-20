@@ -1,0 +1,43 @@
+.card-subtitle-date {
+  font-size: 16pt;
+}
+
+.review-div {
+  cursor: pointer;
+}
+
+.td-review-list {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.td-review-list:hover {
+  color: blue;
+}
+
+#reviews-table {
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+#title-search-input {
+  float: right;
+}
+
+/* Table column widths */
+.mat-cell:nth-child(1), .mat-header-cell:nth-child(1) {
+  width: 446px;
+}
+
+.mat-cell:nth-child(2), .mat-header-cell:nth-child(2) {
+  width: 246px;
+}
+
+#thumbnail-button {
+  padding: 0px;
+}
+
+#thumbnail-img {
+  max-width: 298px;
+  max-height: 155px;
+}
