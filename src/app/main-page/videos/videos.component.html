@@ -1,16 +1,32 @@
 <mat-card class="section-layout section-inner mat-card-post content">
-  <div *ngFor="let video of videos">
-    <mat-card-title class="card-title item-title">
-      {{ video.title_display }}
-    </mat-card-title>
-    <mat-card-subtitle class="card-subtitle item-author">
-      By {{ video.author }}
-    </mat-card-subtitle>
-    <mat-card-content class="item-caption">
-      {{ video.date | date }} <br/>
-      {{ video.caption }}
-    </mat-card-content>
+  <div *ngFor="let video of videos; let i = index">
+    <div class="wrapper" (click)="onVideoClick(videos[i].loadVideo = !videos[i].loadVideo)">
+      <div class="youtube" *ngIf="!video.loadVideo">
+        <img src="https://img.youtube.com/vi/{{ video.youtube_id }}/sddefault.jpg">
+        <div class="play-button">
+        </div>
+      </div>
 
-    <mat-divider [inset]="true"></mat-divider>
+      <div class="youtube" *ngIf="video.loadVideo">
+        <iframe src="https://www.youtube.com/embed/vm0Ls5CZZhY?autoplay=1"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen>
+        </iframe>
+      </div>
+
+      <mat-card-title class="card-title item-title">
+        {{ video.title_display }}
+      </mat-card-title>
+      <mat-card-subtitle class="card-subtitle item-author">
+        By {{ video.author }}
+      </mat-card-subtitle>
+      <mat-card-content class="item-caption">
+        {{ video.date | date }} <br/>
+        {{ video.caption }}
+      </mat-card-content>
+
+      <mat-divider [inset]="true"></mat-divider>
+    </div>
   </div>
 </mat-card>
